@@ -1,0 +1,267 @@
+@import "tailwindcss";
+@import "./styles/crisis.css";
+
+@theme {
+  --color-bg-primary: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-bg-hover: #334155;
+  --color-border: #334155;
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #06b6d4;
+}
+
+[data-theme="light"] {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-hover: #e2e8f0;
+  --color-border: #e2e8f0;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #64748b;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --color-info: #0891b2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-bg-hover);
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-toast {
+  animation: toast-in 0.2s ease-out;
+}
+
+@keyframes page-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+main[role="main"] > * {
+  animation: page-fade 0.15s ease-out;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-bg-secondary) 25%, var(--color-bg-hover) 50%, var(--color-bg-secondary) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite;
+}
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE — Mobile first overrides
+   ═══════════════════════════════════════════════════════════ */
+
+/* Tablet & below (≤1024px) */
+@media (max-width: 1024px) {
+  /* Reduce main padding on tablet */
+  main[role="main"] {
+    padding: 16px !important;
+  }
+  /* Modals: smaller padding */
+  .modal-content {
+    padding: 16px !important;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  /* Show hamburger, hide text labels */
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+  .hide-mobile {
+    display: none !important;
+  }
+
+  /* Main content: no left margin (sidebar is overlay) */
+  .app-main-content {
+    margin-left: 0 !important;
+  }
+
+  /* Sidebar: hidden by default on mobile, shown as overlay via .is-open */
+  .mobile-sidebar {
+    display: none !important;
+    top: 0 !important;
+  }
+  .mobile-sidebar.is-open {
+    display: block !important;
+  }
+
+  /* Main padding */
+  main[role="main"] {
+    padding: 12px !important;
+  }
+
+  /* Modals: full width, less padding */
+  .modal-overlay {
+    padding: 0 !important;
+  }
+  .modal-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 100vh !important;
+    height: 100vh !important;
+    border-radius: 0 !important;
+    padding: 12px !important;
+  }
+
+  /* Tables: allow horizontal scroll */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Stat cards: stack vertically */
+  .stat-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Filter bars: wrap and stack */
+  .filter-bar {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  .filter-bar > * {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Header search: hide on mobile */
+  .header-search {
+    display: none !important;
+  }
+
+  /* Time filter buttons: smaller */
+  .time-filter-group button {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+  }
+
+  /* Top nav: 2 lines on mobile */
+  .top-nav {
+    height: auto !important;
+    flex-wrap: wrap !important;
+    padding: 4px 8px !important;
+  }
+  .nav-sections {
+    order: 1 !important;
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    overflow-x: auto !important;
+    padding-bottom: 4px !important;
+  }
+  .nav-actions {
+    order: 2 !important;
+    width: 100% !important;
+    justify-content: flex-end !important;
+    padding: 4px 0 !important;
+    border-top: 1px solid var(--color-border) !important;
+  }
+
+  /* Top nav section buttons: compact on mobile */
+  .nav-sections button {
+    padding: 4px 8px !important;
+  }
+
+  /* Headings: smaller on mobile */
+  h1 {
+    font-size: 20px !important;
+  }
+  h2 {
+    font-size: 16px !important;
+  }
+
+  /* Chat assistance: full height */
+  .assist-panel {
+    height: 50vh !important;
+  }
+
+  /* OnlyOffice container: shorter */
+  .onlyoffice-container {
+    height: 60vh !important;
+  }
+}
+
+/* Small mobile (≤480px) */
+@media (max-width: 480px) {
+  main[role="main"] {
+    padding: 8px !important;
+  }
+
+  /* Even smaller headings */
+  h1 {
+    font-size: 18px !important;
+  }
+
+  /* Tables: tighter */
+  table {
+    font-size: 12px !important;
+  }
+  th, td {
+    padding: 6px 4px !important;
+  }
+
+  /* Modal tabs: scrollable horizontally */
+  .modal-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Desktop (≥769px): sidebar always visible */
+@media (min-width: 769px) {
+  .mobile-sidebar {
+    display: block !important;
+  }
+}

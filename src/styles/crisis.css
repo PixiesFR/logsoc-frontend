@@ -1,0 +1,902 @@
+/* ── Crisis mode theme variables ── */
+/* Applied when [data-mode="crisis"] is set on the root element */
+
+[data-mode="crisis"] {
+  --color-bg-crisis: #0a0a0f;
+  --color-bg-crisis-panel: #12121a;
+  --color-crisis-danger: #ff3333;
+  --color-crisis-warning: #ff8800;
+  --color-crisis-success: #00ff88;
+  --color-crisis-text: #ffffff;
+  --color-crisis-border: #333344;
+  --font-size-crisis-base: 16px;
+  --font-weight-crisis-base: 500;
+}
+
+[data-mode="crisis"] body {
+  background-color: var(--color-bg-crisis);
+  color: var(--color-crisis-text);
+  font-size: var(--font-size-crisis-base);
+  font-weight: var(--font-weight-crisis-base);
+}
+
+/* War Room layout — 3 zones */
+.warroom-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--color-bg-crisis);
+  color: var(--color-crisis-text);
+  overflow: hidden;
+}
+
+.warroom-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background-color: var(--color-bg-crisis-panel);
+  border-bottom: 1px solid var(--color-crisis-border);
+  flex-shrink: 0;
+}
+
+.warroom-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-crisis-text);
+}
+
+.warroom-sentinel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: rgba(255, 51, 51, 0.15);
+  color: var(--color-crisis-danger);
+  border: 1px solid var(--color-crisis-danger);
+}
+
+.warroom-sentinel-ok {
+  background-color: rgba(0, 255, 136, 0.15);
+  color: var(--color-crisis-success);
+  border-color: var(--color-crisis-success);
+}
+
+.warroom-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.warroom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--color-crisis-border);
+  background-color: transparent;
+  color: var(--color-crisis-text);
+  transition: background-color 0.15s ease;
+}
+
+.warroom-btn:hover {
+  background-color: var(--color-bg-crisis-panel);
+}
+
+.warroom-btn-danger {
+  border-color: var(--color-crisis-danger);
+  color: var(--color-crisis-danger);
+}
+
+.warroom-btn-danger:hover {
+  background-color: rgba(255, 51, 51, 0.15);
+}
+
+.warroom-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  gap: 1px;
+  background-color: var(--color-crisis-border);
+}
+
+.warroom-zone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--color-bg-crisis-panel);
+}
+
+.warroom-zone-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-crisis-text);
+  border-bottom: 1px solid var(--color-crisis-border);
+  flex-shrink: 0;
+}
+
+.warroom-zone-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 16px;
+}
+
+/* Timeline items */
+.warroom-timeline-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-crisis-border);
+}
+
+.warroom-timeline-dot {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 4px;
+  background-color: var(--color-crisis-warning);
+}
+
+.warroom-timeline-dot-danger {
+  background-color: var(--color-crisis-danger);
+}
+
+.warroom-timeline-dot-success {
+  background-color: var(--color-crisis-success);
+}
+
+.warroom-timeline-time {
+  font-size: 11px;
+  color: var(--color-crisis-border);
+  margin-bottom: 2px;
+}
+
+.warroom-timeline-text {
+  font-size: 13px;
+  color: var(--color-crisis-text);
+}
+
+/* Checklist items */
+.warroom-checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-crisis-border);
+}
+
+.warroom-checklist-checkbox {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border: 1px solid var(--color-crisis-border);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.warroom-checklist-checkbox-done {
+  background-color: var(--color-crisis-success);
+  border-color: var(--color-crisis-success);
+}
+
+.warroom-checklist-text {
+  font-size: 13px;
+  color: var(--color-crisis-text);
+}
+
+.warroom-checklist-text-done {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Annuaire items */
+.warroom-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-crisis-border);
+}
+
+.warroom-contact-avatar {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-crisis-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-crisis-text);
+}
+
+.warroom-contact-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-crisis-text);
+}
+
+.warroom-contact-role {
+  font-size: 11px;
+  color: var(--color-crisis-border);
+}
+
+/* Fullscreen mode */
+.warroom-fullscreen .warroom-header {
+  display: none;
+}
+
+/* ── Crisis Timeline (ticket #44) ── */
+
+/* Timeline entry container */
+.warroom-timeline-entry {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-crisis-border);
+}
+
+.warroom-timeline-entry-locked {
+  background-color: rgba(51, 51, 68, 0.3);
+  border-radius: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.warroom-timeline-entry-system {
+  border-left: 2px solid var(--color-crisis-warning);
+  padding-left: 8px;
+}
+
+.warroom-timeline-dot {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 4px;
+  background-color: var(--color-crisis-warning);
+}
+
+.warroom-timeline-dot-system {
+  background-color: var(--color-crisis-success);
+}
+
+.warroom-timeline-entry-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.warroom-timeline-entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.warroom-timeline-author {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-crisis-text);
+}
+
+.warroom-timeline-author-role {
+  font-weight: 400;
+  color: var(--color-crisis-border);
+}
+
+.warroom-timeline-icon-locked,
+.warroom-timeline-icon-system {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-crisis-border);
+}
+
+.warroom-timeline-icon-locked {
+  color: var(--color-crisis-warning);
+}
+
+.warroom-timeline-icon-system {
+  color: var(--color-crisis-success);
+}
+
+.warroom-timeline-source {
+  font-size: 10px;
+  color: var(--color-crisis-border);
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Timeline list */
+.warroom-timeline-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Empty/loading state */
+.warroom-timeline-empty {
+  color: var(--color-crisis-border);
+  font-size: 13px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+/* WebSocket status indicator */
+.warroom-timeline-ws-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.warroom-timeline-ws-connected {
+  color: var(--color-crisis-success);
+}
+
+.warroom-timeline-ws-disconnected {
+  color: var(--color-crisis-danger);
+}
+
+/* Export button */
+.warroom-timeline-export-btn {
+  font-size: 12px;
+  padding: 4px 10px;
+}
+
+/* Timeline input */
+.warroom-timeline-input-wrapper {
+  flex-shrink: 0;
+  padding: 10px 16px;
+  border-top: 1px solid var(--color-crisis-border);
+  background-color: var(--color-bg-crisis-panel);
+}
+
+.warroom-timeline-input-author {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-crisis-border);
+  margin-bottom: 4px;
+}
+
+.warroom-timeline-input-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.warroom-timeline-input {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid var(--color-crisis-border);
+  background-color: var(--color-bg-crisis);
+  color: var(--color-crisis-text);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.warroom-timeline-input:focus {
+  border-color: var(--color-crisis-warning);
+}
+
+.warroom-timeline-input::placeholder {
+  color: var(--color-crisis-border);
+}
+
+.warroom-timeline-send-btn,
+.warroom-timeline-lock-btn {
+  flex-shrink: 0;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+
+.warroom-timeline-lock-btn {
+  border-color: var(--color-crisis-warning);
+  color: var(--color-crisis-warning);
+}
+
+.warroom-timeline-lock-btn:hover {
+  background-color: rgba(255, 136, 0, 0.15);
+}
+
+.warroom-timeline-input-hint {
+  font-size: 10px;
+  color: var(--color-crisis-border);
+  margin-top: 4px;
+}
+
+/* Responsive: stack columns on narrow screens */
+@media (max-width: 1024px) {
+  .warroom-body {
+    flex-direction: column;
+  }
+  .warroom-zone {
+    max-height: 50vh;
+  }
+}
+
+/* ── Crisis Checklist (ticket #45) ── */
+
+/* Progress bar */
+.warroom-checklist-progress-wrapper {
+  flex-shrink: 0;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--color-crisis-border);
+}
+
+.checklist-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.checklist-progress-bar-bg {
+  height: 6px;
+  border-radius: 3px;
+  background-color: var(--color-crisis-border);
+  overflow: hidden;
+}
+
+.checklist-progress-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background-color: var(--color-crisis-success);
+  transition: width 0.3s ease;
+}
+
+.checklist-progress-label {
+  font-size: 11px;
+  color: var(--color-crisis-border);
+  text-align: right;
+}
+
+/* Checklist list */
+.warroom-checklist-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.warroom-checklist-empty {
+  color: var(--color-crisis-border);
+  font-size: 13px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+/* Checklist task — extends existing .warroom-checklist-item */
+.warroom-checklist-item-critical {
+  border-left: 2px solid var(--color-crisis-danger);
+  padding-left: 8px;
+}
+
+.warroom-checklist-task-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.warroom-checklist-task-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.warroom-checklist-task-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.warroom-checklist-task-assigned {
+  font-size: 11px;
+  color: var(--color-crisis-border);
+}
+
+.warroom-checklist-task-audit {
+  font-size: 11px;
+  color: var(--color-crisis-success);
+}
+
+/* ── Crisis Contacts (ticket #46) ── */
+
+/* Category filter tabs */
+.warroom-contacts-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-crisis-border);
+  overflow-x: auto;
+}
+
+.warroom-contacts-tab {
+  background: transparent;
+  border: 1px solid var(--color-crisis-border);
+  color: var(--color-crisis-text);
+  padding: 4px 10px;
+  font-size: 11px;
+  font-family: inherit;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.warroom-contacts-tab:hover {
+  border-color: var(--color-crisis-text);
+}
+
+.warroom-contacts-tab-active {
+  background-color: var(--color-crisis-danger);
+  border-color: var(--color-crisis-danger);
+  color: var(--color-bg-crisis);
+  font-weight: 600;
+}
+
+/* Contacts list container */
+.warroom-contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Category group */
+.warroom-contacts-group {
+  border-bottom: 1px solid var(--color-crisis-border);
+}
+
+/* Sticky collapsible category header */
+.warroom-contacts-group-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  background: var(--color-bg-crisis-panel);
+  border: none;
+  border-top: 1px solid var(--color-crisis-border);
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-crisis-text);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+}
+
+.warroom-contacts-group-header:hover {
+  background-color: var(--color-crisis-border);
+}
+
+.warroom-contacts-group-count {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--color-crisis-border);
+  background-color: var(--color-bg-crisis);
+  padding: 1px 6px;
+  border-radius: 8px;
+  border: 1px solid var(--color-crisis-border);
+}
+
+.warroom-contacts-group-chevron {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--color-crisis-border);
+}
+
+/* Group items */
+.warroom-contacts-group-items {
+  padding: 0 12px;
+}
+
+/* Contact card */
+.warroom-contact-card {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-crisis-border);
+}
+
+.warroom-contact-card:last-child {
+  border-bottom: none;
+}
+
+.warroom-contact-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.warroom-contact-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.warroom-contact-org {
+  font-size: 10px;
+  color: var(--color-crisis-border);
+  margin-top: 2px;
+}
+
+/* Priority badge */
+.warroom-contact-priority-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+  color: var(--color-crisis-danger);
+  vertical-align: middle;
+}
+
+/* Contact actions */
+.warroom-contact-card-actions {
+  display: flex;
+  gap: 8px;
+  padding-left: 46px;
+}
+
+.warroom-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-family: inherit;
+  border-radius: 3px;
+  text-decoration: none;
+  border: 1px solid var(--color-crisis-border);
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.warroom-contact-btn-call {
+  color: var(--color-crisis-success);
+  border-color: var(--color-crisis-success);
+}
+
+.warroom-contact-btn-call:hover {
+  background-color: var(--color-crisis-success);
+  color: var(--color-bg-crisis);
+}
+
+.warroom-contact-btn-email {
+  color: var(--color-crisis-text);
+  border-color: var(--color-crisis-border);
+}
+
+.warroom-contact-btn-email:hover {
+  border-color: var(--color-crisis-text);
+  background-color: var(--color-crisis-border);
+}
+
+/* Empty state */
+.warroom-contacts-empty {
+  color: var(--color-crisis-border);
+  font-size: 13px;
+  text-align: center;
+  padding: 40px 0;
+}
+
+/* Zone error fallback (ticket #46 reopen — prevents white screen) */
+.warroom-zone-error-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+/* ── Crisis Vault (ticket #47) ── */
+
+.warroom-vault-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.warroom-vault-list-disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.warroom-vault-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-crisis-border);
+}
+
+.warroom-vault-item:last-child {
+  border-bottom: none;
+}
+
+.warroom-vault-item-disabled {
+  opacity: 0.5;
+}
+
+.warroom-vault-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.warroom-vault-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.warroom-vault-item-name {
+  font-size: 13px;
+  color: var(--color-crisis-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.warroom-vault-item-size {
+  font-size: 10px;
+  color: var(--color-crisis-border);
+  margin-top: 2px;
+}
+
+.warroom-vault-item-desc {
+  font-size: 10px;
+  color: var(--color-crisis-border);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.warroom-vault-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-family: inherit;
+  border-radius: 3px;
+  cursor: pointer;
+  color: var(--color-crisis-text);
+  background: transparent;
+  border: 1px solid var(--color-crisis-border);
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.warroom-vault-btn:hover:not(:disabled) {
+  border-color: var(--color-crisis-text);
+  background-color: var(--color-crisis-border);
+}
+
+.warroom-vault-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.warroom-vault-empty {
+  color: var(--color-crisis-border);
+  font-size: 13px;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.warroom-vault-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px 24px;
+}
+
+.warroom-vault-error {
+  color: var(--color-crisis-danger);
+}
+
+.warroom-vault-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 0 0 8px 0;
+  border-bottom: 1px solid var(--color-crisis-border);
+}
+
+.warroom-vault-tab {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-family: inherit;
+  border: none;
+  background: transparent;
+  color: var(--color-crisis-border);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.warroom-vault-tab-active {
+  color: var(--color-crisis-text);
+  border-bottom-color: var(--color-crisis-text);
+}
+
+@keyframes warroom-spin {
+  to { transform: rotate(360deg); }
+}
+
+.warroom-spin {
+  animation: warroom-spin 1s linear infinite;
+}
+/* ── Crisis Countdown (ticket #48 — Sentinelles temporelles) ── */
+
+.countdown-bar {
+  flex: 1;
+  justify-content: center;
+}
+
+.countdown-chip {
+  font-family: inherit;
+}
+
+/* Mobile / narrow screens (≤1366px): hide authority labels, keep icon + time */
+@media (max-width: 1366px) {
+  .countdown-authority {
+    display: none !important;
+  }
+
+  .countdown-bar {
+    gap: 4px !important;
+  }
+
+  .countdown-chip {
+    padding: 4px 6px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* ── Pulsing trigger button (ticket #51 — §24.8 bascule) ── */
+@keyframes crisis-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 51, 51, 0.7);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(255, 51, 51, 0);
+    opacity: 0.92;
+  }
+}
+
+.crisis-trigger-pulse {
+  animation: crisis-pulse 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crisis-trigger-pulse {
+    animation: none;
+  }
+}
+
+/* ── Qualification step (ticket #51 — pre-crisis interface) ── */
+.crisis-qualification-step {
+  background-color: var(--color-bg-primary);
+}
