@@ -35,7 +35,7 @@ npm run build     # tsc -b strict + vite build → dist/
 
 La variable `VITE_API_URL` doit rester vide en production (le reverse-proxy sert `/api/` et `/ws/`).
 
-Voir [`logsoc`](https://github.com/PixiesFR/logsoc) (backend) et [`logsoc-agent`](https://github.com/PixiesFR/logsoc-agent) (agents natifs) — documentation complète d'installation : `docs/INSTALLATION.md` du dépôt backend.
+Voir [`logsoc`](https://github.com/logsoc-oss/logsoc) (backend) et [`logsoc-agent`](https://github.com/logsoc-oss/logsoc-agent) (agents natifs) — documentation complète d'installation : `docs/INSTALLATION.md` du dépôt backend.
 
 ## Licence
 
